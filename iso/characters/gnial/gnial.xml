@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="gnial.png">
+	<!-- Created with Adobe Animate version 19.2.1.408 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="down0000" x="0" y="0" width="683" height="733"/>
+	<SubTexture name="down0001" x="683" y="0" width="683" height="733"/>
+	<SubTexture name="idle0000" x="1366" y="0" width="586" height="876"/>
+	<SubTexture name="idle0001" x="1952" y="0" width="586" height="876"/>
+	<SubTexture name="idle0002" x="2538" y="0" width="586" height="876"/>
+	<SubTexture name="idle0003" x="3124" y="0" width="586" height="876"/>
+	<SubTexture name="idle0004" x="3710" y="0" width="586" height="876"/>
+	<SubTexture name="idle0005" x="4296" y="0" width="586" height="876"/>
+	<SubTexture name="left0000" x="4882" y="0" width="643" height="874"/>
+	<SubTexture name="left0001" x="0" y="876" width="643" height="874"/>
+	<SubTexture name="right0000" x="643" y="876" width="1064" height="1370"/>
+	<SubTexture name="right0001" x="1707" y="876" width="1064" height="1370"/>
+	<SubTexture name="right0002" x="2771" y="876" width="1064" height="1370"/>
+	<SubTexture name="right0003" x="3835" y="876" width="1064" height="1370"/>
+	<SubTexture name="right0004" x="4899" y="876" width="1064" height="1370"/>
+	<SubTexture name="up0000" x="0" y="2246" width="571" height="844"/>
+	<SubTexture name="up0001" x="571" y="2246" width="571" height="844"/>
+</TextureAtlas>
