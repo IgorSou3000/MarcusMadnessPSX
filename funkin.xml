@@ -41,36 +41,21 @@
 				<file name = "intro.tim" type = "data" source = "iso/hud/intro.tim"/>
 			</dir>
 			
-			<!-- Stage assets -->
-			<dir name = "stage">
-				<!-- Background art -->
-				<file name = "back.arc" type = "data" source = "iso/stage/stage/back.arc"/>
-				
-				<file name = "1e.cht" type = "data" source = "iso/songs/bopeebo/bopeebo-easy.cht"/>
-				<file name = "1n.cht" type = "data" source = "iso/songs/bopeebo/bopeebo.cht"/>
-				<file name = "1h.cht" type = "data" source = "iso/songs/bopeebo/bopeebo-hard.cht"/>
-
-				<file name = "2e.cht" type = "data" source = "iso/songs/fresh/fresh-easy.cht"/>
-				<file name = "2n.cht" type = "data" source = "iso/songs/fresh/fresh.cht"/>
-				<file name = "2h.cht" type = "data" source = "iso/songs/fresh/fresh-hard.cht"/>
-				<file name = "2event.cht" type = "data" source = "iso/songs/fresh/events.cht"/>
-
-				<file name = "3e.cht" type = "data" source = "iso/songs/dadbattle/dadbattle-easy.cht"/>
-				<file name = "3n.cht" type = "data" source = "iso/songs/dadbattle/dadbattle.cht"/>
-				<file name = "3h.cht" type = "data" source = "iso/songs/dadbattle/dadbattle-hard.cht"/>
-			
-				<file name = "4e.cht" type = "data" source = "iso/songs/tutorial/tutorial-easy.cht"/>
-				<file name = "4n.cht" type = "data" source = "iso/songs/tutorial/tutorial.cht"/>
-				<file name = "4h.cht" type = "data" source = "iso/songs/tutorial/tutorial-hard.cht"/>
+			<!-- Marcus and luis stage assets -->
+			<dir name = "marcusbg">		
+				<file name = "1h.cht" type = "data" source = "iso/songs/hallucinogens/hallucinogens-hard.cht"/>
+				<file name = "2h.cht" type = "data" source = "iso/songs/mansion/mansion-hard.cht"/>
+				<file name = "3h.cht" type = "data" source = "iso/songs/mushroom/mushroom-hard.cht"/>
 			</dir>
 			<!-- Character assets -->
 			<dir name = "char">
 				<!-- Boyfriend assets -->
+				<file name = "backbf.arc" type = "data" source = "iso/characters/backbf/main.arc"/>
 				<file name = "bf.arc" type = "data" source = "iso/characters/bf/main.arc"/>
 				<file name = "bfdead.tim" type = "data" source = "iso/characters/bf/dead.tim"/>
 			
-				<!-- Dad assets -->
-				<file name = "dad.arc" type = "data" source = "iso/characters/dad/main.arc"/>
+				<!-- Marcus assets -->
+				<file name = "marcus.arc" type = "data" source = "iso/characters/marcus/main.arc"/>
 
 				<!-- Girlfriend assets -->
 				<file name = "gf.arc" type = "data" source = "iso/characters/gf/main.arc"/>
@@ -93,8 +78,6 @@
 
 			<!-- Movies -->
 			<dir name = "str">
-				<!-- Week7 videos -->
-				<file name = "ugh.str" type = "str" source = "iso/movies/ugh.str"/>
 			</dir>
 
 			<!-- Songs -->

@@ -568,15 +568,15 @@ void Menu_Tick(void)
 				u8 press_g = (58  + ((press_lerp * (255 - 58))  / 256)) / 2;
 				u8 press_b = (206 + ((press_lerp * (255 - 206)) / 256)) / 2;
 				
-				RECT press_src = {0, 203, 207, 18};
-				RECT press_dst = {50, SCREEN_HEIGHT - 35, 207, 18};
+				RECT press_src = {0, 203, 242, 18};
+				RECT press_dst = {50, SCREEN_HEIGHT - 35, 242, 18};
 				Gfx_DrawTexCol(&menu.tex_title, &press_src, &press_dst, press_r, press_g, press_b);
 			}
 			else
 			{
 				//Flash white
-				RECT press_src = {0, (animf_count & 1) ? 203 : 221, 207, 18};
-				RECT press_dst = {50, SCREEN_HEIGHT - 35, 207, 18};
+				RECT press_src = {0, (animf_count & 1) ? 203 : 223, 242, 18};
+				RECT press_dst = {50, SCREEN_HEIGHT - 35, 242, 18};
 				Gfx_DrawTex(&menu.tex_title, &press_src, &press_dst);
 			}
 			
@@ -696,8 +696,7 @@ void Menu_Tick(void)
 				const char *name;
 				const char *tracks[3];
 			} menu_options[] = {
-				{NULL, StageId_Tutorial, "TUTORIAL", {"TUTORIAL", NULL, NULL}},
-				{"1", StageId_DadBattle, "DADDY DEAREST", {"BOPEEBO", "FRESH", "DADBATTLE"}},
+				{"1", StageId_Halluciogens, "DADDY DEAREST", {"BOPEEBO", "FRESH", "DADBATTLE"}},
 			};
 			
 			//Initialize page
@@ -822,10 +821,9 @@ void Menu_Tick(void)
 				const char *text; //The text of the song
 				u8 icon; //The character icon
 			} menu_options[] = {
-				{StageId_Tutorial, 0xFF9271FD, "TUTORIAL", 2},
-				{StageId_Bopeebo, 0xFF9271FD, "BOPEEBO", 1},
-				{StageId_Fresh, 0xFF9271FD, "FRESH", 1},
-				{StageId_DadBattle, 0xFF9271FD, "DADBATTLE", 1},
+				{StageId_Halluciogens, 0xFF9271FD, "HALLUCIOGENS", 1},
+				{StageId_Mansion, 0xFF9271FD, "MANSION", 1},
+				{StageId_Mushroom, 0xFF9271FD, "MUSHROOM", 1},
 			};
 			
 			//Initialize page

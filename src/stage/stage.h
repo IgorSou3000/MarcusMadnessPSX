@@ -39,10 +39,9 @@
 //Stage enums
 typedef enum
 {
-	StageId_Bopeebo,
-	StageId_Fresh,
-	StageId_DadBattle,
-	StageId_Tutorial,
+	StageId_Halluciogens,
+	StageId_Mansion,
+	StageId_Mushroom,
 	
 	StageId_Max
 } StageId;

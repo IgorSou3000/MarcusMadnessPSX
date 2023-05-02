@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-50,
+				-20
+			],
+			"loop": true,
+			"fps": 13,
+			"anim": "",
+			"indices": [],
+			"name": ""
+		},
+		{
+			"offsets": [
+				15,
+				-721
+			],
+			"loop": false,
+			"fps": 13,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "marcus Right"
+		},
+		{
+			"offsets": [
+				15,
+				-721
+			],
+			"loop": false,
+			"fps": 13,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "marcus Left"
+		},
+		{
+			"offsets": [
+				15,
+				-721
+			],
+			"loop": true,
+			"fps": 12,
+			"anim": "idle",
+			"indices": [],
+			"name": "marcus Idle"
+		},
+		{
+			"offsets": [
+				15,
+				-721
+			],
+			"loop": false,
+			"fps": 13,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "marcus Down"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				15,
+				-721
+			],
+			"anim": "singUP",
+			"fps": 13,
+			"name": "marcus Up",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/marcus",
+	"position": [
+		120,
+		-540
+	],
+	"healthicon": "thebrothers",
+	"flip_x": false,
+	"healthbar_colors": [
+		149,
+		233,
+		33
+	],
+	"camera_position": [
+		-70,
+		620
+	],
+	"sing_duration": 5.5,
+	"scale": 1.6
+}

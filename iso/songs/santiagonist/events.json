@@ -1,0 +1,101 @@
+{
+	"song": {
+		"events": [
+			[
+				0,
+				[
+					[
+						"Image Flash",
+						"scredit",
+						"2"
+					]
+				]
+			],
+			[
+				43636.3636363637,
+				[
+					[
+						"Image Flash",
+						"santiagojumpscare",
+						"0.1"
+					],
+					[
+						"Change Character",
+						"1",
+						"santiagoexe"
+					],
+					[
+						"Play Animation",
+						"Laugh",
+						"santiagoexe"
+					]
+				]
+			],
+			[
+				43909.0909090909,
+				[
+					[
+						"Play Animation",
+						"Laugh",
+						"santiagoexe"
+					]
+				]
+			],
+			[
+				44181.8181818182,
+				[
+					[
+						"Play Animation",
+						"Laugh",
+						"santiagoexe"
+					]
+				]
+			],
+			[
+				44454.5454545455,
+				[
+					[
+						"Play Animation",
+						"Laugh",
+						"santiagoexe"
+					]
+				]
+			],
+			[
+				44727.2727272727,
+				[
+					[
+						"Play Animation",
+						"Laugh",
+						"santiagoexe"
+					]
+				]
+			],
+			[
+				45000,
+				[
+					[
+						"Play Animation",
+						"Laugh",
+						"santiagoexe"
+					]
+				]
+			],
+			[
+				81454.5454545455,
+				[
+					[
+						"Image Flash",
+						"santiago",
+						"0.1"
+					],
+					[
+						"Change Character",
+						"1",
+						"santiagonist"
+					]
+				]
+			]
+		]
+	}
+}

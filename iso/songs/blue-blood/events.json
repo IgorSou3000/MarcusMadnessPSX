@@ -1,0 +1,56 @@
+{
+	"song": {
+		"events": [
+			[
+				0,
+				[
+					[
+						"Image Flash",
+						"bbcredit",
+						"2"
+					]
+				]
+			],
+			[
+				54666.6666666667,
+				[
+					[
+						"Add Camera Zoom",
+						"0.02",
+						"0.02"
+					]
+				]
+			],
+			[
+				74666.6666666667,
+				[
+					[
+						"Add Camera Zoom",
+						"0",
+						"0"
+					]
+				]
+			],
+			[
+				86734.8484848485,
+				[
+					[
+						"Image Flash",
+						"santiagojumpscare",
+						"0.1"
+					]
+				]
+			],
+			[
+				86803.0303030303,
+				[
+					[
+						"Change Character",
+						"1",
+						"santiagoexegnial"
+					]
+				]
+			]
+		]
+	}
+}

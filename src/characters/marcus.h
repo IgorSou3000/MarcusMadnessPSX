@@ -8,5 +8,5 @@
 
 #include "psx/character.h"
 
-//Dad character functions
-Character *Char_Dad_New(fixed_t x, fixed_t y);
+//Marcus character functions
+Character *Char_Marcus_New(fixed_t x, fixed_t y);

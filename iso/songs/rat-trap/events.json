@@ -1,0 +1,111 @@
+{
+	"song": {
+		"events": [
+			[
+				0,
+				[
+					[
+						"Image Flash",
+						"rtcredit",
+						"2"
+					]
+				]
+			],
+			[
+				38000,
+				[
+					[
+						"Play Animation",
+						"singDOWN",
+						"BF"
+					]
+				]
+			],
+			[
+				46000,
+				[
+					[
+						"Play Animation",
+						"singRIGHT",
+						"BF"
+					]
+				]
+			],
+			[
+				46250,
+				[
+					[
+						"Play Animation",
+						"singLEFT",
+						"BF"
+					]
+				]
+			],
+			[
+				63000,
+				[
+					[
+						"Play Animation",
+						"laugh",
+						"santiagoexe"
+					],
+					[
+						"Image Flash",
+						"santiagojumpscare",
+						"0.1"
+					]
+				]
+			],
+			[
+				63125,
+				[
+					[
+						"Play Animation",
+						"Laugh",
+						"santiagoexe"
+					]
+				]
+			],
+			[
+				63250,
+				[
+					[
+						"Play Animation",
+						"Laugh",
+						"santiagoexe"
+					]
+				]
+			],
+			[
+				63375,
+				[
+					[
+						"Play Animation",
+						"Laugh",
+						"santiagoexe"
+					]
+				]
+			],
+			[
+				63500,
+				[
+					[
+						"Play Animation",
+						"Laugh",
+						"santiagoexe"
+					]
+				]
+			],
+			[
+				96000,
+				[
+					[
+						"Play Animation",
+						"singRIGHT",
+						"bfforSantiagonist"
+					]
+				]
+			]
+		]
+	}
+}

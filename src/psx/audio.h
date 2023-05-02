@@ -27,11 +27,10 @@ typedef enum
   XA_GettinFreaky,
   XA_GameOver,
   //WEEK1A.XA
-  XA_Bopeebo,
-  XA_Fresh,
+  XA_Halluciogens,
+  XA_Mansion,
   //WEEK1B.XA
-  XA_Dadbattle,
-  XA_Tutorial,
+  XA_Mushroom,
   
   XA_TrackMax,
 } XA_Track;

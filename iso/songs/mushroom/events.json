@@ -1,0 +1,96 @@
+{
+	"song": {
+		"events": [
+			[
+				1445.78313253012,
+				[
+					[
+						"Image Flash",
+						"mucredit",
+						"2"
+					]
+				]
+			],
+			[
+				47710.843373494,
+				[
+					[
+						"Play Animation",
+						"singUP",
+						"marcus"
+					]
+				]
+			],
+			[
+				100581.998157548,
+				[
+					[
+						"Play Animation",
+						"singLEFT",
+						"marcus"
+					]
+				]
+			],
+			[
+				100731.923195029,
+				[
+					[
+						"Play Animation",
+						"singUP",
+						"marcus"
+					]
+				]
+			],
+			[
+				101031.773269992,
+				[
+					[
+						"Play Animation",
+						"singDOWN",
+						"marcus"
+					]
+				]
+			],
+			[
+				101331.623344954,
+				[
+					[
+						"Play Animation",
+						"singUP",
+						"marcus"
+					]
+				]
+			],
+			[
+				101481.548382435,
+				[
+					[
+						"Play Animation",
+						"singRIGHT",
+						"marcus"
+					]
+				]
+			],
+			[
+				101781.398457398,
+				[
+					[
+						"Play Animation",
+						"singUP",
+						"marcus"
+					]
+				]
+			],
+			[
+				102381.098607323,
+				[
+					[
+						"Play Animation",
+						"singDOWN",
+						"marcus"
+					]
+				]
+			]
+		]
+	}
+}

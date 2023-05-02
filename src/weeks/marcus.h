@@ -8,5 +8,5 @@
 
 #include "stage/stage.h"
 
-//Stage functions
-StageBack *Back_Stage_New();
+//Marcus BG functions
+StageBack *Back_Marcus_New();

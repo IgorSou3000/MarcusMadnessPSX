@@ -1,60 +1,45 @@
-	{ //StageId_Bopeebo
+	{ //StageId_Halluciogens
+		//Characters
+		{Char_BackBF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
+		{Char_Marcus_New, FIXED_DEC(-120,1),  FIXED_DEC(-100,1)},
+		{NULL},
+		
+		//Stage background
+		Back_Marcus_New,
+		
+		//Song info
+		"MARCUSBG", 1,
+		XA_Halluciogens, 0,
+		
+		StageId_Mansion, STAGE_LOAD_FLAG
+	},
+	{ //StageId_Mansion
 		//Characters
 		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
-		{Char_Dad_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
-		{Char_GF_New,     FIXED_DEC(0,1),  FIXED_DEC(-10,1)},
+		{Char_Marcus_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{NULL},
 		
 		//Stage background
-		Back_Stage_New,
+		Back_Marcus_New,
 		
 		//Song info
-		"STAGE", 1,
-		XA_Bopeebo, 0,
+		"MARCUSBG", 2,
+		XA_Mansion, 2,
 		
-		StageId_Fresh, STAGE_LOAD_FLAG
+		StageId_Mushroom, STAGE_LOAD_FLAG
 	},
-	{ //StageId_Fresh
+	{ //StageId_Mushroom
 		//Characters
 		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
-		{Char_Dad_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
-		{Char_GF_New,     FIXED_DEC(0,1),  FIXED_DEC(-10,1)},
+		{Char_Marcus_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{NULL},
 		
 		//Stage background
-		Back_Stage_New,
+		Back_Marcus_New,
 		
 		//Song info
-		"STAGE", 2,
-		XA_Fresh, 2,
+		"MARCUSBG", 3,
+		XA_Mushroom, 0,
 		
-		StageId_DadBattle, STAGE_LOAD_FLAG
-	},
-	{ //StageId_DadBattle
-		//Characters
-		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
-		{Char_Dad_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
-		{Char_GF_New,     FIXED_DEC(0,1),  FIXED_DEC(-10,1)},
-		
-		//Stage background
-		Back_Stage_New,
-		
-		//Song info
-		"STAGE", 3,
-		XA_Dadbattle, 0,
-		
-		StageId_DadBattle, 0
-	},
-	{ //StageId_Tutorial
-		//Characters
-		{Char_BF_New, FIXED_DEC(60,1),  FIXED_DEC(100,1)},
-		{Char_GF_New,  FIXED_DEC(0,1),  FIXED_DEC(-15,1)}, //TODO
-		{NULL,           FIXED_DEC(0,1),  FIXED_DEC(-10,1)},
-		
-		//Stage background
-		Back_Stage_New,
-		
-		//Song info
-		"STAGE", 4,
-		XA_Tutorial, 2,
-		
-		StageId_Tutorial, 0
-	},
+		StageId_Mushroom, 0
+	}
