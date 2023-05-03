@@ -11,6 +11,7 @@ all: \
 	iso/characters/bf/main.arc \
 	iso/characters/bf/dead.tim \
 	iso/characters/marcus/main.arc \
+	iso/characters/luis/main.arc \
 	iso/characters/gf/main.arc \
 	iso/characters/gf/speaker.tim \
 	iso/stage/stage/back.arc \
@@ -32,6 +33,10 @@ iso/characters/bf/main.arc: iso/characters/bf/bf0.tim iso/characters/bf/bf1.tim 
 
 # Marcus
 iso/characters/marcus/main.arc: iso/characters/marcus/idle0.tim iso/characters/marcus/idle1.tim iso/characters/marcus/idle2.tim iso/characters/marcus/left0.tim iso/characters/marcus/left1.tim iso/characters/marcus/left2.tim iso/characters/marcus/left3.tim iso/characters/marcus/down0.tim iso/characters/marcus/down1.tim iso/characters/marcus/up0.tim iso/characters/marcus/up1.tim iso/characters/marcus/right0.tim iso/characters/marcus/right1.tim iso/characters/marcus/right2.tim iso/characters/marcus/right3.tim 
+
+# Luis
+iso/characters/luis/main.arc: iso/characters/luis/idle0.tim iso/characters/luis/idle1.tim iso/characters/luis/idle2.tim iso/characters/luis/idle3.tim iso/characters/luis/left0.tim iso/characters/luis/left1.tim iso/characters/luis/left2.tim iso/characters/luis/left3.tim iso/characters/luis/down0.tim iso/characters/luis/down1.tim iso/characters/luis/down2.tim iso/characters/luis/up0.tim iso/characters/luis/up1.tim iso/characters/luis/up2.tim iso/characters/luis/up3.tim iso/characters/luis/right0.tim iso/characters/luis/right1.tim iso/characters/luis/right2.tim 
+
 
 
 # GF

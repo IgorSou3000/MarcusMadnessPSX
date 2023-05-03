@@ -11,7 +11,7 @@
 #include "psx/gfx.h"
 #include "psx/fixed.h"
 
-#define DEBUG_MODE
+//#define DEBUG_MODE
 
 #ifdef DEBUG_MODE
 //Debug definitions

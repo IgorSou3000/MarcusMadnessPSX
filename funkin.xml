@@ -57,6 +57,9 @@
 				<!-- Marcus assets -->
 				<file name = "marcus.arc" type = "data" source = "iso/characters/marcus/main.arc"/>
 
+				<!-- Luis assets -->
+				<file name = "luis.arc" type = "data" source = "iso/characters/luis/main.arc"/>
+
 				<!-- Girlfriend assets -->
 				<file name = "gf.arc" type = "data" source = "iso/characters/gf/main.arc"/>
 				<file name = "speaker.tim" type = "data" source = "iso/characters/gf/speaker.tim"/>

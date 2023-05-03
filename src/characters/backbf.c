@@ -58,8 +58,8 @@ static const CharFrame char_bf_frame[] = {
   {BackBF_ArcMain_Up0, {  0,  0,116,151}, {227,115}}, //9 up 1
   {BackBF_ArcMain_Up0, {116,  0,117,149}, {227,113}}, //10 up 2
 
-  {BackBF_ArcMain_Right0, {  0,  0,121,140}, {225,105}}, //11 right 1
-  {BackBF_ArcMain_Right0, {121,  0,121,141}, {226,106}}, //12 right 2
+  {BackBF_ArcMain_Right0, {  0,  0,121,140}, {225,104}}, //11 right 1
+  {BackBF_ArcMain_Right0, {121,  0,121,141}, {226,105}}, //12 right 2
 };
 
 static const Animation char_bf_anim[PlayerAnim_Max] = {
@@ -160,8 +160,8 @@ Character *Char_BackBF_New(fixed_t x, fixed_t y)
 	//Character scale
 	this->character.scale = FIXED_DEC(1,1);
 	
-	this->character.focus_x = FIXED_DEC(-50,1);
-	this->character.focus_y = FIXED_DEC(-65,1);
+	this->character.focus_x = FIXED_DEC(-156,1);
+	this->character.focus_y = FIXED_DEC(-150,1);
 	this->character.focus_zoom = FIXED_DEC(1,1);
 	
 	//Load art

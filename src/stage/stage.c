@@ -38,6 +38,7 @@ static const u8 note_anims[4][3] = {
 #include "characters/backbf.h"
 #include "characters/bf.h"
 #include "characters/marcus.h"
+#include "characters/luis.h"
 #include "characters/gf.h"
 
 #include "weeks/dummy.h"
