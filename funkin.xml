@@ -47,6 +47,15 @@
 				<file name = "2h.cht" type = "data" source = "iso/songs/mansion/mansion-hard.cht"/>
 				<file name = "3h.cht" type = "data" source = "iso/songs/mushroom/mushroom-hard.cht"/>
 			</dir>
+
+			<!-- Santiago stage assets -->
+			<dir name = "santibg">		
+				<file name = "1h.cht" type = "data" source = "iso/songs/Shining-Blue/Shining-Blue-hard.cht"/>
+				<file name = "2h.cht" type = "data" source = "iso/songs/santiagonist/santiagonist-hard.cht"/>
+				<file name = "3h.cht" type = "data" source = "iso/songs/rat-trap/rat-trap-hard.cht"/>
+				<file name = "4h.cht" type = "data" source = "iso/songs/blue-blood/blue-blood-hard.cht"/>
+			</dir>
+
 			<!-- Character assets -->
 			<dir name = "char">
 				<!-- Boyfriend assets -->
@@ -59,6 +68,9 @@
 
 				<!-- Luis assets -->
 				<file name = "luis.arc" type = "data" source = "iso/characters/luis/main.arc"/>
+
+				<!-- Santiago assets -->
+				<file name = "santi.arc" type = "data" source = "iso/characters/santiago/main.arc"/>
 
 				<!-- Girlfriend assets -->
 				<file name = "gf.arc" type = "data" source = "iso/characters/gf/main.arc"/>
@@ -88,6 +100,8 @@
 				<file name = "menu.mus" type = "xa" source = "iso/songs/menu.mus"/>
 				<file name = "week1a.mus" type = "xa" source = "iso/songs/week1a.mus"/>
 				<file name = "week1b.mus" type = "xa" source = "iso/songs/week1b.mus"/>
+				<file name = "week2a.mus" type = "xa" source = "iso/songs/week2a.mus"/>
+				<file name = "week2b.mus" type = "xa" source = "iso/songs/week2b.mus"/>
 			</dir>
 			
 			<!-- Dummy sectors -->

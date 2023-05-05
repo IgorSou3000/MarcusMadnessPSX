@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-30,
+				-257
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "SantiagoEXE Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-50,
+				-230
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "SantiagoEXE Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-30,
+				-247
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "SantiagoEXE Right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-30,
+				-250
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "SantiagoEXE Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-20,
+				-240
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "SantiagoEXE Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-81,
+				-260
+			],
+			"anim": "Laugh",
+			"fps": 24,
+			"name": "SantiagoEXE Laugh",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/SantiagoEXE",
+	"position": [
+		-350,
+		-160
+	],
+	"healthicon": "santiagoexe",
+	"flip_x": false,
+	"healthbar_colors": [
+		60,
+		0,
+		255
+	],
+	"camera_position": [
+		0,
+		140
+	],
+	"sing_duration": 4,
+	"scale": 0.6
+}

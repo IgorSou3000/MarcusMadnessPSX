@@ -42,4 +42,64 @@
 		XA_Mushroom, 0,
 		
 		StageId_Mushroom, 0
+	},
+	{ //StageId_Shining_Blue
+		//Characters
+		{Char_BF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
+		{Char_Santiago_New, FIXED_DEC(31,1),  FIXED_DEC(-100,1)},
+		{NULL},
+		
+		//Stage background
+		Back_Santiago_New,
+		
+		//Song info
+		"SANTIBG", 1,
+		XA_Shining_Blue, 0,
+		
+		StageId_Santiagonist, STAGE_LOAD_FLAG
+	},
+	{ //StageId_Santiagonist
+		//Characters
+		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
+		{Char_Luis_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{NULL},
+		
+		//Stage background
+		Back_Santiago_New,
+		
+		//Song info
+		"SANTIBG", 2,
+		XA_Santiagonist, 2,
+		
+		StageId_Rat_Trap, STAGE_LOAD_FLAG
+	},
+	{ //StageId_Rat_Trap
+		//Characters
+		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
+		{Char_Marcus_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{NULL},
+		
+		//Stage background
+		Back_Santiago_New,
+		
+		//Song info
+		"SANTIBG", 3,
+		XA_Rat_Trap, 0,
+		
+		StageId_Rat_Trap, 0
+	},
+	{ //StageId_Blue_Blood
+		//Characters
+		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
+		{Char_Marcus_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{NULL},
+		
+		//Stage background
+		Back_Santiago_New,
+		
+		//Song info
+		"SANTIBG", 4,
+		XA_Blue_Blood, 2,
+		
+		StageId_Blue_Blood, 0
 	}

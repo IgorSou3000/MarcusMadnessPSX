@@ -39,10 +39,12 @@ static const u8 note_anims[4][3] = {
 #include "characters/bf.h"
 #include "characters/marcus.h"
 #include "characters/luis.h"
+#include "characters/santiago.h"
 #include "characters/gf.h"
 
 #include "weeks/dummy.h"
 #include "weeks/marcus.h"
+#include "weeks/santiagobg.h"
 
 static const StageDef stage_defs[StageId_Max] = {
 	#include "stagedef_disc1.h"

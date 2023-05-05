@@ -22,7 +22,6 @@
 #include "psx/loadscr.h"
 
 #include "stage/stage.h"
-#include "characters/gf.h"
 
 //Menu messages
 static const char *funny_messages[][2] = {
@@ -111,8 +110,7 @@ static struct
 	//Menu assets
 	Gfx_Tex tex_back, tex_ng, tex_story, tex_title;
 	FontData font_bold, font_arial, font_cdr;
-	
-	Character *gf; //Title Girlfriend
+
 } menu;
 
 //Internal menu functions
@@ -335,7 +333,6 @@ void Menu_Load(MenuPage page)
 	FontData_Load(&menu.font_arial, Font_Arial, false);
 	FontData_Load(&menu.font_cdr, Font_CDR, false);
 	
-	menu.gf = Char_GF_New(FIXED_DEC(62,1), FIXED_DEC(-12,1));
 	stage.camera.x = stage.camera.y = FIXED_DEC(0,1);
 	stage.camera.bzoom = FIXED_UNIT;
 	stage.gf_speed = 4;
@@ -385,8 +382,6 @@ void Menu_Load(MenuPage page)
 
 void Menu_Unload(void)
 {
-	//Free title Girlfriend
-	Character_Free(menu.gf);
 }
 
 void Menu_ToStage(StageId id, StageDiff diff, boolean story)
@@ -542,13 +537,16 @@ void Menu_Tick(void)
 				FIXED_DEC(110,100),
 				FIXED_DEC(97,100),
 			};
+
+			u16 logo_width = 172;
+			u16 logo_height = 168;
 			fixed_t logo_scale = logo_scales[(menu.page_state.title.logo_bump * 24) / FIXED_UNIT];
-			u32 x_rad = (logo_scale * (176 / 2)) / FIXED_UNIT;
-			u32 y_rad = (logo_scale * (112 / 2)) / FIXED_UNIT;
+			u32 x_rad = (logo_scale * (logo_width / 2)) / FIXED_UNIT;
+			u32 y_rad = (logo_scale * (logo_height / 2)) / FIXED_UNIT;
 			
-			RECT logo_src = {0, 0, 176, 112};
+			RECT logo_src = {0, 0, logo_width, logo_height};
 			RECT logo_dst = {
-				100 - x_rad + (SCREEN_WIDEADD2 / 2),
+				86 - x_rad + (SCREEN_WIDEADD2 / 2),
 				68 - y_rad,
 				x_rad * 2,
 				y_rad * 2
@@ -579,9 +577,6 @@ void Menu_Tick(void)
 				RECT press_dst = {50, SCREEN_HEIGHT - 35, 242, 18};
 				Gfx_DrawTex(&menu.tex_title, &press_src, &press_dst);
 			}
-			
-			//Draw Girlfriend
-			menu.gf->tick(menu.gf);
 			break;
 		}
 		case MenuPage_Main:
@@ -697,6 +692,7 @@ void Menu_Tick(void)
 				const char *tracks[3];
 			} menu_options[] = {
 				{"1", StageId_Halluciogens, "DADDY DEAREST", {"BOPEEBO", "FRESH", "DADBATTLE"}},
+				{"2", StageId_Shining_Blue, "DADDY DEAREST", {"SHINING-BLUE", "SANTIAGONIST", "RAT-TRAP"}},
 			};
 			
 			//Initialize page
@@ -824,6 +820,10 @@ void Menu_Tick(void)
 				{StageId_Halluciogens, 0xFF9271FD, "HALLUCIOGENS", 1},
 				{StageId_Mansion, 0xFF9271FD, "MANSION", 1},
 				{StageId_Mushroom, 0xFF9271FD, "MUSHROOM", 1},
+				{StageId_Shining_Blue, 0xFF9271FD, "SHINING-BLUE", 1},
+				{StageId_Santiagonist, 0xFF9271FD, "SANTIAGONIST", 1},
+				{StageId_Rat_Trap, 0xFF9271FD, "RAT-TRAP", 1},
+				{StageId_Blue_Blood, 0xFF9271FD, "BLUE-BLOOD", 1},
 			};
 			
 			//Initialize page

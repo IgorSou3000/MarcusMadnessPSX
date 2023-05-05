@@ -43,6 +43,11 @@ typedef enum
 	StageId_Mansion,
 	StageId_Mushroom,
 	
+	StageId_Shining_Blue,
+	StageId_Santiagonist,
+	StageId_Rat_Trap,
+	StageId_Blue_Blood,
+	
 	StageId_Max
 } StageId;
 

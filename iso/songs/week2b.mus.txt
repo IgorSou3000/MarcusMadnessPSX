@@ -1,0 +1,4 @@
+1 xa rat-trap/Voices.xa 1 0
+1 xa rat-trap/Inst.xa 1 1
+1 xa blue-blood/Voices.xa 1 2
+1 xa blue-blood/Inst.xa 1 3
