@@ -113,7 +113,7 @@ void Char_Marcus_Tick(Character *character)
 	Character_CheckAnimationUpdate(character);
 	
 	if (stage.flag & STAGE_FLAG_JUST_STEP)
-		Character_PerformIdle(character);
+		Character_PerformIdle(character, 8);
 	
 	//Animate and draw
 	Animatable_Animate(&character->animatable, (void*)this, Char_Marcus_SetFrame);

@@ -108,7 +108,7 @@ void Character_CheckAnimationUpdate(Character* this)
 		Character_CheckEndSing(this);
 }
 
-void Character_PerformIdle(Character *this)
+void Character_PerformIdle(Character *this, u8 speed)
 {
 	if (Animatable_Ended(&this->animatable) &&
 		(this->animatable.anim != CharAnim_Left &&
@@ -123,6 +123,6 @@ void Character_PerformIdle(Character *this)
 		 this->animatable.anim != CharAnim_Right &&
 		 this->animatable.anim != CharAnim_RightAlt &&
 		 this->animatable.anim != PlayerAnim_RightMiss) &&
-		(stage.song_step & 7) == 0)
+		 (stage.song_step % speed) == 0)
 			this->set_anim(this, CharAnim_Idle);
 }

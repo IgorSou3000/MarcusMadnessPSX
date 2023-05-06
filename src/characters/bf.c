@@ -124,7 +124,7 @@ void Char_BF_Tick(Character *character)
 	Character_CheckAnimationUpdate(character);
 	
 	if (stage.flag & STAGE_FLAG_JUST_STEP)
-		Character_PerformIdle(character);
+		Character_PerformIdle(character, 8);
 	
 	//Animate and draw character
 	Animatable_Animate(&character->animatable, (void*)this, Char_BF_SetFrame);
@@ -179,9 +179,9 @@ Character *Char_BF_New(fixed_t x, fixed_t y)
 	//Character scale
 	this->character.scale = FIXED_DEC(1,1);
 	
-	this->character.focus_x = FIXED_DEC(-50,1);
-	this->character.focus_y = FIXED_DEC(-65,1);
-	this->character.focus_zoom = FIXED_DEC(8,10);
+	this->character.focus_x = FIXED_DEC(-80,1);
+	this->character.focus_y = FIXED_DEC(-95,1);
+	this->character.focus_zoom = FIXED_DEC(9,10);
 	
 	//Load art
 	this->arc_main = IO_Read("\\CHAR\\BF.ARC;1");

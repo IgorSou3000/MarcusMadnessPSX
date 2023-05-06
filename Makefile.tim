@@ -15,7 +15,7 @@ all: \
 	iso/characters/santiago/main.arc \
 	iso/characters/gf/main.arc \
 	iso/characters/gf/speaker.tim \
-	iso/stage/stage/back.arc \
+	iso/stage/santiagobg/back.arc \
 
 iso/%.tim: iso/%.png
 	tools/funkintimpak/funkintimpak $@ $<
@@ -39,11 +39,11 @@ iso/characters/marcus/main.arc: iso/characters/marcus/idle0.tim iso/characters/m
 iso/characters/luis/main.arc: iso/characters/luis/idle0.tim iso/characters/luis/idle1.tim iso/characters/luis/idle2.tim iso/characters/luis/idle3.tim iso/characters/luis/left0.tim iso/characters/luis/left1.tim iso/characters/luis/left2.tim iso/characters/luis/left3.tim iso/characters/luis/down0.tim iso/characters/luis/down1.tim iso/characters/luis/down2.tim iso/characters/luis/up0.tim iso/characters/luis/up1.tim iso/characters/luis/up2.tim iso/characters/luis/up3.tim iso/characters/luis/right0.tim iso/characters/luis/right1.tim iso/characters/luis/right2.tim 
 
 # Santiago
-iso/characters/santiago/main.arc: iso/characters/santiago/san0.tim iso/characters/santiago/san1.tim iso/characters/santiago/san2.tim iso/characters/santiago/san3.tim iso/characters/santiago/san4.tim iso/characters/santiago/san5.tim iso/characters/santiago/san6.tim iso/characters/santiago/san7.tim iso/characters/santiago/san8.tim iso/characters/santiago/san9.tim iso/characters/santiago/san10.tim iso/characters/santiago/san11.tim iso/characters/santiago/san12.tim 
+iso/characters/santiago/main.arc: iso/characters/santiago/san0.tim iso/characters/santiago/san1.tim iso/characters/santiago/san2.tim iso/characters/santiago/san3.tim iso/characters/santiago/san4.tim iso/characters/santiago/san5.tim iso/characters/santiago/san6.tim iso/characters/santiago/san7.tim iso/characters/santiago/san8.tim
 
 
 # GF
 iso/characters/gf/main.arc: iso/characters/gf/gf0.tim iso/characters/gf/gf1.tim iso/characters/gf/gf2.tim iso/characters/gf/tut0.tim iso/characters/gf/tut1.tim
 
 # Week 1
-iso/stage/stage/back.arc: iso/stage/stage/back0.tim iso/stage/stage/back1.tim
+iso/stage/santiagobg/back.arc: iso/stage/santiagobg/back0.tim

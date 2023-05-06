@@ -49,7 +49,10 @@
 			</dir>
 
 			<!-- Santiago stage assets -->
-			<dir name = "santibg">		
+			<dir name = "santibg">
+				<!-- Background art -->
+				<file name = "back.arc" type = "data" source = "iso/stage/santiagobg/back.arc"/>
+
 				<file name = "1h.cht" type = "data" source = "iso/songs/Shining-Blue/Shining-Blue-hard.cht"/>
 				<file name = "2h.cht" type = "data" source = "iso/songs/santiagonist/santiagonist-hard.cht"/>
 				<file name = "3h.cht" type = "data" source = "iso/songs/rat-trap/rat-trap-hard.cht"/>

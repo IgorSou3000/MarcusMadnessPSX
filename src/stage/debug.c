@@ -19,7 +19,7 @@ void Debug_Load(void)
 	debug.select = 0;
 	debug.mode = debug.next_mode = 0;
 
-	for (u8 i = 0; i < 10; i++)
+	for (u8 i = 0; i < DEBUG_POSITION_SIZE; i++)
 	{
 		debug.ogpositions[i].x = debug.positions[i].x = 0;
 		debug.ogpositions[i].y = debug.positions[i].y = 0;

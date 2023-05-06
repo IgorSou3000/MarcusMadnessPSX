@@ -46,7 +46,7 @@
 	{ //StageId_Shining_Blue
 		//Characters
 		{Char_BF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
-		{Char_Santiago_New, FIXED_DEC(31,1),  FIXED_DEC(-100,1)},
+		{Char_Santiago_New, FIXED_DEC(187,1),  FIXED_DEC(153,1)},
 		{NULL},
 		
 		//Stage background
@@ -60,8 +60,8 @@
 	},
 	{ //StageId_Santiagonist
 		//Characters
-		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
-		{Char_Luis_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{Char_BF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
+		{Char_Santiago_New, FIXED_DEC(187,1),  FIXED_DEC(153,1)},
 		{NULL},
 		
 		//Stage background
@@ -75,8 +75,8 @@
 	},
 	{ //StageId_Rat_Trap
 		//Characters
-		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
-		{Char_Marcus_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{Char_BF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
+		{Char_Santiago_New, FIXED_DEC(187,1),  FIXED_DEC(153,1)},
 		{NULL},
 		
 		//Stage background
@@ -90,8 +90,8 @@
 	},
 	{ //StageId_Blue_Blood
 		//Characters
-		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
-		{Char_Marcus_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{Char_BF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
+		{Char_Santiago_New, FIXED_DEC(187,1),  FIXED_DEC(153,1)},
 		{NULL},
 		
 		//Stage background

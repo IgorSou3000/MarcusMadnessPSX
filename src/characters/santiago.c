@@ -23,10 +23,6 @@ enum
   Santiago_ArcMain_Santiago6,
   Santiago_ArcMain_Santiago7,
   Santiago_ArcMain_Santiago8,
-  Santiago_ArcMain_Santiago9,
-  Santiago_ArcMain_Santiago10,
-  Santiago_ArcMain_Santiago11,
-  Santiago_ArcMain_Santiago12,
 	
 	Santiago_Arc_Max,
 };
@@ -46,34 +42,36 @@ typedef struct
 
 //Santiago character definitions
 static const CharFrame char_santiago_frame[] = {
-  {Santiago_ArcMain_Santiago0, {  0,  0,148,238}, {236,203}}, //0 idle 1
-  {Santiago_ArcMain_Santiago1, {  0,  0,147,237}, {235,202}}, //1 idle 2
-  {Santiago_ArcMain_Santiago2, {  0,  0,144,233}, {231,198}}, //2 idle 3
-  {Santiago_ArcMain_Santiago3, {  0,  0,145,234}, {232,199}}, //3 idle 4
-  {Santiago_ArcMain_Santiago4, {  0,  0,145,238}, {233,202}}, //4 idle 5
 
-  {Santiago_ArcMain_Santiago5, {  0,  0,207,215}, {260,183}}, //5 left 1
-  {Santiago_ArcMain_Santiago6, {  0,  0,206,215}, {259,183}}, //6 left 2
+  {Santiago_ArcMain_Santiago0, {  0,  0, 93,149}, {208,186}}, //0 idle 1
+  {Santiago_ArcMain_Santiago0, { 93,  0, 92,149}, {207,186}}, //1 idle 2
+  {Santiago_ArcMain_Santiago1, {  0,  0, 91,146}, {205,183}}, //2 idle 3
+  {Santiago_ArcMain_Santiago1, { 91,  0, 91,147}, {206,184}}, //3 idle 4
+  {Santiago_ArcMain_Santiago2, {  0,  0,131,149}, {206,185}}, //4 idle 5
 
-  {Santiago_ArcMain_Santiago7, {  0,  0,224,198}, {259,163}}, //7 down 1
-  {Santiago_ArcMain_Santiago8, {  0,  0,220,201}, {257,166}}, //8 down 2
+  {Santiago_ArcMain_Santiago3, {  0,  0,130,135}, {223,174}}, //5 left 1
+  {Santiago_ArcMain_Santiago4, {  0,  0,129,135}, {222,174}}, //6 left 2
 
-  {Santiago_ArcMain_Santiago9, {  0,  0,173,244}, {241,209}}, //9 up 1
-  {Santiago_ArcMain_Santiago10, {  0,  0,176,242}, {244,207}}, //10 up 2
+  {Santiago_ArcMain_Santiago5, {  0,  0,140,124}, {222,161}}, //7 down 1
+  {Santiago_ArcMain_Santiago5, {  0,124,138,126}, {221,163}}, //8 down 2
+  {Santiago_ArcMain_Santiago6, {  0,  0,135,127}, {220,164}}, //9 down 3
 
-  {Santiago_ArcMain_Santiago11, {  0,  0,191,227}, {217,194}}, //11 right 1
-  {Santiago_ArcMain_Santiago12, {  0,  0,191,227}, {217,194}}, //12 right 2
+  {Santiago_ArcMain_Santiago6, {135,  0,108,153}, {211,190}}, //10 up 1
+  {Santiago_ArcMain_Santiago7, {  0,  0,110,151}, {213,188}}, //11 up 2
+
+  {Santiago_ArcMain_Santiago7, {110,  0,120,142}, {196,181}}, //12 right 1
+  {Santiago_ArcMain_Santiago8, {  0,  0,120,142}, {196,181}}, //13 right 2
 };
 
 static const Animation char_santiago_anim[CharAnim_Max] = {
 	{2, (const u8[]){ 0,  1,  2,  3,  4, ASCR_BACK, 1}}, //CharAnim_Idle
 	{2, (const u8[]){ 5,  6, ASCR_BACK, 1}},         //CharAnim_Left
 	{0, (const u8[]){ASCR_CHGANI, CharAnim_Idle}},   //CharAnim_LeftAlt
-	{2, (const u8[]){ 7,  8, ASCR_BACK, 1}},         //CharAnim_Down
+	{2, (const u8[]){ 7,  8,  9, ASCR_BACK, 1}},         //CharAnim_Down
 	{0, (const u8[]){ASCR_CHGANI, CharAnim_Idle}},   //CharAnim_DownAlt
-	{2, (const u8[]){ 9, 10, ASCR_BACK, 1}},         //CharAnim_Up
+	{2, (const u8[]){10, 11, ASCR_BACK, 1}},         //CharAnim_Up
 	{0, (const u8[]){ASCR_CHGANI, CharAnim_Idle}},   //CharAnim_UpAlt
-	{2, (const u8[]){11, 12, ASCR_BACK, 1}},         //CharAnim_Right
+	{2, (const u8[]){12, 13, ASCR_BACK, 1}},         //CharAnim_Right
 	{0, (const u8[]){ASCR_CHGANI, CharAnim_Idle}},   //CharAnim_RightAlt
 
 	{0, (const u8[]){ASCR_CHGANI, CharAnim_Idle}},       //CharAnim_Special1
@@ -103,7 +101,7 @@ void Char_Santiago_Tick(Character *character)
 	Character_CheckAnimationUpdate(character);
 	
 	if (stage.flag & STAGE_FLAG_JUST_STEP)
-		Character_PerformIdle(character);
+		Character_PerformIdle(character, 8);
 	
 	//Animate and draw
 	Animatable_Animate(&character->animatable, (void*)this, Char_Santiago_SetFrame);
@@ -154,11 +152,11 @@ Character *Char_Santiago_New(fixed_t x, fixed_t y)
 	this->character.health_b = 0xFFAE67D0;
 
 	//Character scale
-	this->character.scale = FIXED_DEC(8,10);
+	this->character.scale = FIXED_DEC(1,1);
 	
-	this->character.focus_x = FIXED_DEC(5,1);
-	this->character.focus_y = FIXED_DEC(-35,1);
-	this->character.focus_zoom = FIXED_DEC(8,10);
+	this->character.focus_x = FIXED_DEC(-75,1);
+	this->character.focus_y = FIXED_DEC(-148,1);
+	this->character.focus_zoom = FIXED_DEC(9,10);
 	
 	//Load art
 	this->arc_main = IO_Read("\\CHAR\\SANTI.ARC;1");
@@ -173,10 +171,6 @@ Character *Char_Santiago_New(fixed_t x, fixed_t y)
 	  "san6.tim",
 	  "san7.tim",
 	  "san8.tim",
-	  "san9.tim",
-	  "san10.tim",
-	  "san11.tim",
-	  "san12.tim",
 		NULL
 	};
 	IO_Data *arc_ptr = this->arc_ptr;

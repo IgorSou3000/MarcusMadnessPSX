@@ -546,8 +546,8 @@ void Menu_Tick(void)
 			
 			RECT logo_src = {0, 0, logo_width, logo_height};
 			RECT logo_dst = {
-				86 - x_rad + (SCREEN_WIDEADD2 / 2),
-				68 - y_rad,
+				SCREEN_WIDTH2 - x_rad + (SCREEN_WIDEADD2 / 2),
+				SCREEN_HEIGHT2 - y_rad,
 				x_rad * 2,
 				y_rad * 2
 			};
@@ -567,14 +567,14 @@ void Menu_Tick(void)
 				u8 press_b = (206 + ((press_lerp * (255 - 206)) / 256)) / 2;
 				
 				RECT press_src = {0, 203, 242, 18};
-				RECT press_dst = {50, SCREEN_HEIGHT - 35, 242, 18};
+				RECT press_dst = {39, SCREEN_HEIGHT - 35, 242, 18};
 				Gfx_DrawTexCol(&menu.tex_title, &press_src, &press_dst, press_r, press_g, press_b);
 			}
 			else
 			{
 				//Flash white
 				RECT press_src = {0, (animf_count & 1) ? 203 : 223, 242, 18};
-				RECT press_dst = {50, SCREEN_HEIGHT - 35, 242, 18};
+				RECT press_dst = {39, SCREEN_HEIGHT - 35, 242, 18};
 				Gfx_DrawTex(&menu.tex_title, &press_src, &press_dst);
 			}
 			break;
