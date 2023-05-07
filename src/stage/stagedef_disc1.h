@@ -15,8 +15,8 @@
 	},
 	{ //StageId_Mansion
 		//Characters
-		{Char_BackBF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
-		{Char_Luis_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{Char_BackBF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
+		{Char_Luis_New, FIXED_DEC(222,1),  FIXED_DEC(113,1)},
 		{NULL},
 		
 		//Stage background
