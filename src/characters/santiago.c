@@ -154,7 +154,7 @@ Character *Char_Santiago_New(fixed_t x, fixed_t y)
 	//Character scale
 	this->character.scale = FIXED_DEC(1,1);
 	
-	this->character.focus_x = FIXED_DEC(-75,1);
+	this->character.focus_x = FIXED_DEC(-35,1);
 	this->character.focus_y = FIXED_DEC(-148,1);
 	this->character.focus_zoom = FIXED_DEC(9,10);
 	

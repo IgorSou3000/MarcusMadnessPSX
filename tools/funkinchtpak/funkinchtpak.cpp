@@ -29,7 +29,8 @@ struct Section
 #define NOTE_FLAG_SUSTAIN_END (1 << 4) //Is either end of sustain
 #define NOTE_FLAG_ALT_ANIM    (1 << 5) //Note plays alt animation
 #define NOTE_FLAG_MINE        (1 << 6) //Note is a mine
-#define NOTE_FLAG_HIT         (1 << 7) //Note has been hit
+#define NOTE_FLAG_CHARACTER2  (1 << 7) //Note is for character
+#define NOTE_FLAG_HIT         (1 << 15) //Note has been hit
 
 struct Note
 {
@@ -187,6 +188,8 @@ int main(int argc, char *argv[])
 	for (auto &i : song_info["notes"]) //Iterate through sections
 	{
 		bool is_opponent = i["mustHitSection"] != true; //Note: swapped
+
+		bool is_gf = i["gfSection"] == true;
 		
 		//Read section
 		Section new_section;
@@ -241,6 +244,8 @@ int main(int argc, char *argv[])
 				new_note.type |= NOTE_FLAG_SUSTAIN_END;
 			if (((uint8_t)j[1]) & 8 || j[3] == "Hurt Note")
 				new_note.type |= NOTE_FLAG_MINE;
+			if (is_gf)
+				new_note.type |= NOTE_FLAG_CHARACTER2;
 			
 			if (note_fudge.count(*((uint32_t*)&new_note)))
 			{

@@ -13,7 +13,7 @@
 
 #define DEBUG_POSITION_SIZE 5
 
-#define DEBUG_MODE
+//#define DEBUG_MODE
 
 #ifdef DEBUG_MODE
 //Debug definitions

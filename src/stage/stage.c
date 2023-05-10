@@ -164,6 +164,21 @@ static void Stage_GetSectionScroll(SectionScroll *scroll, Section *section)
 	scroll->size = FIXED_MUL(stage.speed, scroll->length * (12 * 150) / scroll->length_step) + FIXED_UNIT;
 }
 
+static void Stage_CharacterSing(PlayerState* this, Note* note, u8 type)
+{
+	if (note->type & NOTE_FLAG_CHARACTER2 && this->character2 != NULL)
+	{
+		this->character->pad_held = 0;
+		this->character2->set_anim(this->character2, note_anims[type % 4][(note->type & NOTE_FLAG_ALT_ANIM) != 0]);
+	}
+
+	else if (this->character != NULL)
+	{
+		this->character2->pad_held = 0;
+		this->character->set_anim(this->character, note_anims[type % 4][(note->type & NOTE_FLAG_ALT_ANIM) != 0]);
+	}
+}
+
 //Note hit detection
 static u8 Stage_HitNote(PlayerState *this, u8 type, fixed_t offset)
 {
@@ -277,9 +292,8 @@ static void Stage_NoteCheck(PlayerState *this, u8 type)
 			
 			//Hit the note
 			note->type |= NOTE_FLAG_HIT;
-			
-			if (this->character != NULL)
-				this->character->set_anim(this->character, note_anims[type % 4][(note->type & NOTE_FLAG_ALT_ANIM) != 0]);
+		
+			Stage_CharacterSing(this, note, type);
 
 			u8 hit_type = Stage_HitNote(this, type, stage.note_scroll - note_fp);
 			this->arrow_hitan[type % 4] = stage.step_time;
@@ -303,15 +317,7 @@ static void Stage_NoteCheck(PlayerState *this, u8 type)
 			
 			this->health -= 2000;
 
-			//Make character sing if he exist
-			if (this->character != NULL)
-			{
-				if (this->character->spec & CHAR_SPEC_MISSANIM)
-				this->character->set_anim(this->character, note_anims[type % 4][2]);
-
-				else
-					this->character->set_anim(this->character, note_anims[type % 4][0]);
-			}
+			Stage_CharacterSing(this, note, type);
 
 			this->arrow_hitan[type % 4] = -1;
 			return;
@@ -356,9 +362,7 @@ static void Stage_SustainCheck(PlayerState *this, u8 type)
 		//Hit the note
 		note->type |= NOTE_FLAG_HIT;
 		
-		//Make character sing if he exist
-		if (this->character != NULL)
-			this->character->set_anim(this->character, note_anims[type % 4][(note->type & NOTE_FLAG_ALT_ANIM) != 0]);
+		Stage_CharacterSing(this, note, type);
 		
 		Stage_StartVocal();
 		this->health += 210;
@@ -375,7 +379,7 @@ static void Stage_ProcessPlayer(PlayerState *this, Pad *pad, boolean playing)
 		{
 			u8 i = (this->character == stage.opponent) ? NOTE_FLAG_OPPONENT : 0;
 			
-			this->pad_held = this->character->pad_held = pad->held;
+			this->pad_held = this->character->pad_held = this->character2->pad_held = pad->held;
 			this->pad_press = pad->press;
 			
 			if (this->pad_held & INPUT_LEFT)
@@ -398,7 +402,7 @@ static void Stage_ProcessPlayer(PlayerState *this, Pad *pad, boolean playing)
 		}
 		else
 		{
-			this->pad_held = this->character->pad_held = 0;
+			this->pad_held = this->character->pad_held = this->character2->pad_held = 0;
 			this->pad_press = 0;
 		}
 	}
@@ -458,11 +462,11 @@ static void Stage_ProcessPlayer(PlayerState *this, Pad *pad, boolean playing)
 				}
 			}
 			
-			this->character->pad_held = this->pad_held;
+			this->character->pad_held = this->character2->pad_held = this->pad_held;
 		}
 		else
 		{
-			this->pad_held = this->character->pad_held = 0;
+			this->pad_held = this->character->pad_held = this->character2->pad_held = 0;
 			this->pad_press = 0;
 		}
 	}
@@ -503,43 +507,6 @@ void Stage_DrawTexCol(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, fixe
 void Stage_DrawTex(Gfx_Tex *tex, const RECT *src, const RECT_FIXED *dst, fixed_t zoom)
 {
 	Stage_DrawTexCol(tex, src, dst, zoom, 0x80, 0x80, 0x80);
-}
-
-void Stage_DrawTex3DCol(Gfx_Tex *tex, const RECT *src, RECT_FIXED *dst, fixed_t camera_x, fixed_t camera_y, u8 r, u8 g, u8 b, fixed_t zoom)
-{
-	//Draw stage
-	fixed_t fx, fy;
-
-	fx = camera_x * 3 / 2;
-	fy = camera_y * 3 / 2;
-	
-	POINT_FIXED point_2 = {
-		dst->x - fx,
-		dst->y + dst->h - fy,
-	};
-	POINT_FIXED point_3 = {
-		dst->x + dst->w - fx,
-		dst->y + dst->h - fy,
-	};
-	
-	fx = camera_x >> 1;
-	fy = camera_y >> 1;
-	
-	POINT_FIXED point_0 = {
-		dst->x - fx,
-		dst->y - fy,
-	};
-	POINT_FIXED point_1 = {
-		dst->x + dst->w - fx,
-		dst->y - fy,
-	};
-
-	Stage_DrawTexArbCol(tex, src, &point_0, &point_1, &point_2, &point_3, r, g, b, zoom);
-}
-
-void Stage_DrawTex3D(Gfx_Tex *tex, const RECT *src, RECT_FIXED *dst, fixed_t camera_x, fixed_t camera_y, fixed_t zoom)
-{
-	Stage_DrawTex3DCol(tex, src, dst, camera_x, camera_y, 128, 128, 128, zoom);
 }
 
 void Stage_DrawTexArbCol(Gfx_Tex *tex, const RECT *src, const POINT_FIXED *p0, const POINT_FIXED *p1, const POINT_FIXED *p2, const POINT_FIXED *p3, u8 r, u8 g, u8 b, fixed_t zoom)
@@ -1074,7 +1041,7 @@ static void Stage_LoadNotesPos(void)
 			stage.note_x[i] =  FIXED_DEC(26 + i * NOTE_SIZE,1) + FIXED_DEC(SCREEN_WIDEADD,4); //+34
 
 			//Opponent
-			stage.note_x[i + 4] =  FIXED_DEC(-128 + i * NOTE_SIZE,1) + FIXED_DEC(SCREEN_WIDEADD,4); //-34
+			stage.note_x[(i + 4)] =  FIXED_DEC(-128 + i * NOTE_SIZE,1) + FIXED_DEC(SCREEN_WIDEADD,4); //-34
 		}
 	}
 	
@@ -1110,6 +1077,26 @@ static void Stage_LoadGirlfriend(void)
 		stage.gf = stage.stage_def->gchar.new(stage.stage_def->gchar.x, stage.stage_def->gchar.y);
 	else
 		stage.gf = NULL;
+}
+
+static void Stage_LoadPlayer2(void)
+{
+	//Load player character
+	Character_Free(stage.player2);
+	if (stage.stage_def->p2char.new != NULL)
+	stage.player2 = stage.stage_def->p2char.new(stage.stage_def->p2char.x, stage.stage_def->p2char.y);
+	else
+		stage.player2 = NULL;
+}
+
+static void Stage_LoadOpponent2(void)
+{
+	//Load opponent character
+	Character_Free(stage.opponent2);
+	if (stage.stage_def->o2char.new != NULL)
+	stage.opponent2 = stage.stage_def->o2char.new(stage.stage_def->o2char.x, stage.stage_def->o2char.y);
+	else
+		stage.opponent2 = NULL;
 }
 
 static void Stage_LoadStage(void)
@@ -1241,6 +1228,12 @@ static void Stage_LoadMusic(void)
 
 	if (stage.gf != NULL)
 		stage.gf->sing_end -= stage.note_scroll;
+
+	if (stage.player2 != NULL)
+		stage.player2->sing_end -= stage.note_scroll;
+
+	if (stage.opponent2 != NULL)
+		stage.opponent2->sing_end -= stage.note_scroll;
 	
 	//Find music file and begin seeking to it
 	Audio_SeekXA_Track(stage.stage_def->track);
@@ -1261,6 +1254,12 @@ static void Stage_LoadMusic(void)
 	
 	if (stage.gf != NULL)
 		stage.gf->sing_end += stage.note_scroll;
+
+	if (stage.player2 != NULL)
+		stage.player2->sing_end += stage.note_scroll;
+
+	if (stage.opponent2 != NULL)
+		stage.opponent2->sing_end += stage.note_scroll;
 }
 
 static void Stage_LoadState(void)
@@ -1276,11 +1275,17 @@ static void Stage_LoadState(void)
 	{
 		stage.player_state[0].character = stage.opponent;
 		stage.player_state[1].character = stage.player;
+
+		stage.player_state[0].character2 = stage.opponent2;
+		stage.player_state[1].character2 = stage.player2;
 	}
 	else
 	{
 		stage.player_state[0].character = stage.player;
 		stage.player_state[1].character = stage.opponent;
+
+		stage.player_state[0].character2 = stage.player2;
+		stage.player_state[1].character2 = stage.opponent2;
 	}
 
 	//Update score
@@ -1339,6 +1344,8 @@ void Stage_Load(StageId id, StageDiff difficulty, boolean story)
 	Stage_LoadPlayer();
 	Stage_LoadOpponent();
 	Stage_LoadGirlfriend();
+	Stage_LoadPlayer2();
+	Stage_LoadOpponent2();
 
 	//Load HUD textures
 	Gfx_LoadTex(&stage.tex_hud0, IO_Read("\\HUD\\HUD0.TIM;1"), GFX_LOADTEX_FREE);
@@ -1423,6 +1430,10 @@ void Stage_Unload(void)
 	stage.opponent = NULL;
 	Character_Free(stage.gf);
 	stage.gf = NULL;
+	Character_Free(stage.player2);
+	stage.player2 = NULL;
+	Character_Free(stage.opponent2);
+	stage.opponent2 = NULL;
 }
 
 static boolean Stage_NextLoad(void)
@@ -1472,6 +1483,24 @@ static boolean Stage_NextLoad(void)
 		{
 			stage.gf->x = stage.stage_def->gchar.x;
 			stage.gf->y = stage.stage_def->gchar.y;
+		}
+		if (load & STAGE_LOAD_PLAYER2)
+		{
+			Stage_LoadPlayer2();
+		}
+		else if (stage.player2 != NULL)
+		{
+			stage.player2->x = stage.stage_def->p2char.x;
+			stage.player2->y = stage.stage_def->p2char.y;
+		}
+		if (load & STAGE_LOAD_OPPONENT2)
+		{
+			Stage_LoadOpponent2();
+		}
+		else if (stage.opponent2 != NULL)
+		{
+			stage.opponent2->x = stage.stage_def->o2char.x;
+			stage.opponent2->y = stage.stage_def->o2char.y;
 		}
 		
 		//Load stage chart
@@ -1748,9 +1777,7 @@ void Stage_Tick(void)
 							Stage_StartVocal();
 
 							//Make character sing if he exist
-							if (stage.player_state[1].character != NULL)
-								stage.player_state[1].character->set_anim(stage.player_state[1].character, note_anims[note->type % 4][(note->type & NOTE_FLAG_ALT_ANIM) != 0]);
-
+							Stage_CharacterSing(&stage.player_state[1], note, note->type % 0x4);
 							note->type |= NOTE_FLAG_HIT;
 						}
 					}
@@ -1900,6 +1927,10 @@ void Stage_Tick(void)
 				stage.player->tick(stage.player);
 			if (stage.opponent != NULL)
 				stage.opponent->tick(stage.opponent);
+			if (stage.player2 != NULL)
+				stage.player2->tick(stage.player2);
+			if (stage.opponent2 != NULL)
+				stage.opponent2->tick(stage.opponent2);
 			
 			//Draw stage middle
 			if (stage.back->draw_md != NULL)

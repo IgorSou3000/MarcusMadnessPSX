@@ -41,10 +41,10 @@ void Back_Santiago_DrawBG(StageBack* back)
 	//Draw Background
 	RECT back_src = {0, 0, 255, 255};
 	RECT_FIXED back_dst = {
-		FIXED_DEC(-102,1) - fx,
-		FIXED_DEC(-155,1) - fy,
+		FIXED_DEC(-124,1) - fx,
+		FIXED_DEC(-176,1) - fy,
 		FIXED_DEC(416,1),
-		FIXED_DEC(312,1)
+		FIXED_DEC(324,1)
 	};
 
 	Debug_MoveTexture(&back_dst, 0, "back", fx, fy);

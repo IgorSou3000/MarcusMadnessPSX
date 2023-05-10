@@ -33,7 +33,9 @@
 #define STAGE_LOAD_PLAYER     (1 << 0) //Reload player character
 #define STAGE_LOAD_OPPONENT   (1 << 1) //Reload opponent character
 #define STAGE_LOAD_GIRLFRIEND (1 << 2) //Reload girlfriend character
-#define STAGE_LOAD_STAGE      (1 << 3) //Reload stage
+#define STAGE_LOAD_PLAYER2    (1 << 3) //Reload player2 character
+#define STAGE_LOAD_OPPONENT2  (1 << 4) //Reload opponent2 character
+#define STAGE_LOAD_STAGE      (1 << 5) //Reload stage
 #define STAGE_LOAD_FLAG       (1 << 7)
 
 //Stage enums
@@ -93,7 +95,7 @@ typedef struct
 	{
 		Character* (*new)();
 		fixed_t x, y;
-	} pchar, ochar, gchar;
+	} pchar, ochar, gchar, p2char, o2char;
 	
 	//Stage background
 	StageBack* (*back)();
@@ -123,7 +125,8 @@ typedef struct
 #define NOTE_FLAG_SUSTAIN_END (1 << 4) //Is either end of sustain
 #define NOTE_FLAG_ALT_ANIM    (1 << 5) //Note plays alt animation
 #define NOTE_FLAG_MINE        (1 << 6) //Note is a mine
-#define NOTE_FLAG_HIT         (1 << 7) //Note has been hit
+#define NOTE_FLAG_CHARACTER2  (1 << 7) //Note is for character
+#define NOTE_FLAG_HIT         (1 << 15) //Note has been hit
 
 typedef struct
 {
@@ -146,6 +149,7 @@ typedef struct
 typedef struct
 {
 	Character *character;
+	Character *character2;
 	
 	fixed_t arrow_hitan[4]; //Arrow hit animation for presses
 	
@@ -243,6 +247,8 @@ typedef struct
 	Character *player;
 	Character *opponent;
 	Character *gf;
+	Character *player2;
+	Character *opponent2;
 	
 	fixed_t note_scroll, song_time, interp_time, interp_ms, interp_speed;
 
