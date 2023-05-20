@@ -28,7 +28,7 @@
 
 #define STAGE_FLAG_JUST_STEP     (1 << 0) //Song just stepped this frame
 #define STAGE_FLAG_VOCAL_ACTIVE  (1 << 1) //Song's vocal track is currently active
-#define STAGE_FLAG_PAUSED 			 (1 << 2) //Game Is Paused
+#define STAGE_FLAG_PAUSED            (1 << 2) //Game Is Paused
 
 #define STAGE_LOAD_PLAYER     (1 << 0) //Reload player character
 #define STAGE_LOAD_OPPONENT   (1 << 1) //Reload opponent character
@@ -41,73 +41,74 @@
 //Stage enums
 typedef enum
 {
-	StageId_Halluciogens,
-	StageId_Mansion,
-	StageId_Mushroom,
-	
-	StageId_Shining_Blue,
-	StageId_Santiagonist,
-	StageId_Rat_Trap,
-	StageId_Blue_Blood,
-	
-	StageId_Max
+    StageId_Halluciogens,
+    StageId_Mansion,
+    StageId_Mushroom,
+    
+    StageId_Shining_Blue,
+    StageId_Santiagonist,
+    StageId_Rat_Trap,
+    StageId_Blue_Blood,
+    
+    StageId_Max
 } StageId;
 
 typedef enum
 {
-	StageDiff_Easy,
-	StageDiff_Normal,
-	StageDiff_Hard,
+    StageDiff_Easy,
+    StageDiff_Normal,
+    StageDiff_Hard,
 
-	StageDiff_Max,
+    StageDiff_Max,
 } StageDiff;
 
 typedef enum
 {
-	StageMode_Normal,
-	StageMode_Swap,
-	StageMode_2P,
+    StageMode_Normal,
+    StageMode_Swap,
+    StageMode_2P,
 } StageMode;
 
 typedef enum
 {
-	StageTrans_Menu,
-	StageTrans_NextStage,
-	StageTrans_Reload,
+    StageTrans_Menu,
+    StageTrans_NextStage,
+    StageTrans_Reload,
 } StageTrans;
 
 //Stage background
 typedef struct StageBack
 {
-	//Stage background functions
-	void (*tick)(struct StageBack*);
-	void (*draw_fg)(struct StageBack*);
-	void (*draw_md)(struct StageBack*);
-	void (*draw_bg)(struct StageBack*);
-	void (*free)(struct StageBack*);
+    //Stage background functions
+    void (*tick)(struct StageBack*);
+    void (*draw_fg)(struct StageBack*);
+    void (*draw_md)(struct StageBack*);
+    void (*draw_bg)(struct StageBack*);
+    void (*free)(struct StageBack*);
 } StageBack;
 
 //Stage definitions
 typedef struct
 {
-	//Characters
-	struct
-	{
-		Character* (*new)();
-		fixed_t x, y;
-	} pchar, ochar, gchar, p2char, o2char;
-	
-	//Stage background
-	StageBack* (*back)();
-	
-	//Song info	
-	const char* week;
-	u8 week_song;
-	XA_Track track;
-	u8 channel;
-	
-	StageId next_stage;
-	u8 next_load;
+    //Characters
+    struct
+    {
+        Character* (*new)();
+        fixed_t x, y;
+    } pchar, ochar, gchar, p2char, o2char;
+    
+    //Stage background
+    StageBack* (*back)();
+    
+    //Song info 
+    const char* week;
+    const char* img;
+    u8 week_song;
+    XA_Track track;
+    u8 channel;
+    
+    StageId next_stage;
+    u8 next_load;
 } StageDef;
 
 //Stage state
@@ -116,8 +117,8 @@ typedef struct
 
 typedef struct
 {
-	u16 end; //1/12 steps
-	u16 flag;
+    u16 end; //1/12 steps
+    u16 flag;
 } Section;
 
 #define NOTE_FLAG_OPPONENT    (1 << 2) //Note is opponent's
@@ -130,156 +131,156 @@ typedef struct
 
 typedef struct
 {
-	u16 pos; //1/12 steps
-	u16 type;
+    u16 pos; //1/12 steps
+    u16 type;
 } Note;
 
 typedef struct
 {
-	IO_Data data;
-	Section *sections;
-	Note *notes;
-	Event* events;
+    IO_Data data;
+    Section *sections;
+    Note *notes;
+    Event* events;
 
-	Section *cur_section; //Current section
-	Note *cur_note; //First visible and hittable note, used for drawing and hit detection
-	Event* cur_event; //Current event
+    Section *cur_section; //Current section
+    Note *cur_note; //First visible and hittable note, used for drawing and hit detection
+    Event* cur_event; //Current event
 } Chart;
 
 typedef struct
 {
-	Character *character;
-	Character *character2;
-	
-	fixed_t arrow_hitan[4]; //Arrow hit animation for presses
-	
-	s16 health;
-	u16 combo;
-	
-	boolean refresh_score;
-	s32 score, max_score;
-	char score_text[25];
+    Character *character;
+    Character *character2;
+    
+    fixed_t arrow_hitan[4]; //Arrow hit animation for presses
+    
+    s16 health;
+    u16 combo;
+    
+    boolean refresh_score;
+    s32 score, max_score;
+    char score_text[25];
 
-	boolean refresh_misses;
-	u16 misses;
-	char misses_text[25];
+    boolean refresh_misses;
+    u16 misses;
+    char misses_text[25];
 
-	boolean refresh_accuracy;
-	u32 min_accuracy, max_accuracy, accuracy;
-	char accuracy_text[25];
+    boolean refresh_accuracy;
+    u32 min_accuracy, max_accuracy, accuracy;
+    char accuracy_text[25];
 
-	//Score, misses and accuracy
-	char info_text[25*3];
-	
-	u16 pad_held, pad_press;
+    //Score, misses and accuracy
+    char info_text[25*3];
+    
+    u16 pad_held, pad_press;
 } PlayerState;
 
 typedef struct
 {
-	//Stage settings
-	s32 mode;
+    //Stage settings
+    s32 mode;
 
-	//Variables that you want save
-	struct
-	{
-		boolean ghost, middlescroll, downscroll, healthdrain, showtimer, botplay, canbump, splash;
+    //Variables that you want save
+    struct
+    {
+        boolean ghost, middlescroll, downscroll, healthdrain, showtimer, botplay, canbump, splash;
 
-		u32 savescore[StageId_Max][StageDiff_Max];	
-	}save;
-	
-	u32 offset;
-	
-	//HUD textures
-	Gfx_Tex tex_hud0, tex_hud1, tex_intro;
+        u32 savescore[StageId_Max][StageDiff_Max];  
+    }save;
+    
+    u32 offset;
+    
+    //HUD textures
+    Gfx_Tex tex_hud0, tex_hud1, tex_intro;
 
-	//Game over
-	Gfx_Tex tex_gameover;
-	IO_Data gameover_tim;
-	char gameover_path[30];
+    //Game over
+    Gfx_Tex tex_gameover;
+    IO_Data gameover_tim;
+    char gameover_path[30];
 
-	//Notes
-	fixed_t note_x[8];
-	fixed_t note_y[8];
+    //Notes
+    fixed_t note_x[8];
+    fixed_t note_y[8];
 
-	//Font Stuff
-	FontData font_cdr, font_bold;
+    //Font Stuff
+    FontData font_cdr, font_bold;
 
-	//Sound Effects
-	SFX introsound[4];
-	SFX sounds[6];
+    //Sound Effects
+    SFX introsound[4];
+    SFX sounds[6];
 
-	//Pause state
-	u8 pause_select;
+    //Pause state
+    u8 pause_select;
   fixed_t pause_scroll;
-	
-	//Stage data
-	const StageDef *stage_def;
-	StageId stage_id;
-	StageDiff stage_diff;
-	
-	Chart main_chart;
-	Chart event_chart; //event.json
-	boolean exist_event_json;
-	
-	fixed_t speed, ogspeed;
-	fixed_t step_crochet, step_time;
-	fixed_t early_safe, late_safe, early_sus_safe, late_sus_safe;
-	
-	//Stage state
-	boolean story;
-	u8 flag;
-	StageTrans trans;
+    
+    //Stage data
+    const StageDef *stage_def;
+    StageId stage_id;
+    StageDiff stage_diff;
+    
+    Chart main_chart;
+    Chart event_chart; //event.json
+    boolean exist_event_json;
+    
+    fixed_t speed, ogspeed;
+    fixed_t step_crochet, step_time;
+    fixed_t early_safe, late_safe, early_sus_safe, late_sus_safe;
+    
+    //Stage state
+    boolean story;
+    u8 flag;
+    StageTrans trans;
 
-	//Timer song
-	char timer_display[10];
-	u16 timer, timersec, timermin;
-	
-	struct
-	{
-		fixed_t x, y, zoom;
-		fixed_t tx, ty, tz, td;
-		fixed_t bzoom;
-	} camera;
-	fixed_t bump, sbump, character_bump;
-	
-	StageBack *back;
-	
-	Character *player;
-	Character *opponent;
-	Character *gf;
-	Character *player2;
-	Character *opponent2;
-	
-	fixed_t note_scroll, song_time, interp_time, interp_ms, interp_speed;
+    //Timer song
+    char timer_display[10];
+    u16 timer, timersec, timermin;
+    
+    struct
+    {
+        fixed_t x, y, zoom;
+        fixed_t tx, ty, tz, td;
+        fixed_t bzoom;
+    } camera;
+    fixed_t bump, sbump, character_bump;
+    
+    StageBack *back;
+    
+    Character *player;
+    Character *opponent;
+    Character *gf;
+    Character *player2;
+    Character *opponent2;
+    
+    fixed_t note_scroll, song_time, interp_time, interp_ms, interp_speed;
 
-	//week 6 combo
-	boolean pixelcombo;
-	
-	u16 last_bpm;
-	
-	fixed_t time_base;
-	u16 step_base;
-	Section *section_base;
-	
-	s32 song_step;
-	s16 song_beat; //Step / 4
-	
-	u8 gf_speed; //Typically 4 steps, changes in Fresh
-	
-	PlayerState player_state[2];
-	s32 max_score;
-	
-	enum
-	{
-		StageState_Play, 			//Game is playing as normal
-		StageState_Dead,      //Unload a lot of data
-		StageState_DeadLoop,	//Retry prompt
-	} state;
-	
-	u8 note_swap;
-	
-	//Object lists
-	ObjectList objlist_splash, objlist_fg, objlist_bg;
+    //week 6 combo
+    boolean pixelcombo;
+    
+    u16 last_bpm;
+    
+    fixed_t time_base;
+    u16 step_base;
+    Section *section_base;
+    
+    s32 song_step;
+    s16 song_beat; //Step / 4
+    
+    u8 gf_speed; //Typically 4 steps, changes in Fresh
+    
+    PlayerState player_state[2];
+    s32 max_score;
+    
+    enum
+    {
+        StageState_Play,            //Game is playing as normal
+        StageState_Dead,      //Unload a lot of data
+        StageState_DeadLoop,    //Retry prompt
+    } state;
+    
+    u8 note_swap;
+    
+    //Object lists
+    ObjectList objlist_splash, objlist_fg, objlist_bg;
 } Stage;
 
 extern Stage stage;
