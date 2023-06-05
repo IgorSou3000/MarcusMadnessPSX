@@ -7,6 +7,7 @@ all: \
 	iso/hud/hud1.tim \
 	iso/hud/hud1spk.tim \
 	iso/hud/intro.tim \
+	iso/characters/pico/main.arc \
 	iso/characters/backbf/main.arc \
 	iso/characters/bf/main.arc \
 	iso/characters/bf/dead.tim \
@@ -25,6 +26,9 @@ iso/%.arc:
 
 # Menu
 iso/menu/menu.arc: iso/menu/back.tim iso/menu/ng.tim iso/menu/story.tim iso/menu/title.tim iso/menu/hud1.tim
+
+# go bigo ye ye go bigo ye
+iso/characters/pico/main.arc: iso/characters/pico/idle.tim iso/characters/pico/hit1.tim iso/characters/pico/hit0.tim
 
 # Back BF
 iso/characters/backbf/main.arc: iso/characters/backbf/idle0.tim iso/characters/backbf/idle1.tim iso/characters/backbf/idle2.tim iso/characters/backbf/idle3.tim iso/characters/backbf/idle4.tim iso/characters/backbf/left0.tim iso/characters/backbf/down0.tim iso/characters/backbf/up0.tim iso/characters/backbf/right0.tim 

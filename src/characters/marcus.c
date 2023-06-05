@@ -166,8 +166,8 @@ Character *Char_Marcus_New(fixed_t x, fixed_t y)
 	//Character scale
 	this->character.scale = FIXED_DEC(1,1);
 	
-	this->character.focus_x = FIXED_DEC(5,1);
-	this->character.focus_y = FIXED_DEC(169,1);
+	this->character.focus_x = FIXED_DEC(36 - 31,1);
+	this->character.focus_y = FIXED_DEC(-36 - -200,1);
 	this->character.focus_zoom = FIXED_DEC(1,1);
 	
 	//Load art

@@ -23,7 +23,7 @@
 #include "object/splash.h"
 
 //Stage constants
-//#define DEBUG_MODE
+#define DEBUG_MODE
 #define NOTE_SIZE 32
 
 static const u16 note_key[] = {INPUT_LEFT, INPUT_DOWN, INPUT_UP, INPUT_RIGHT};
@@ -35,6 +35,7 @@ static const u8 note_anims[4][3] = {
 };
 
 //Stage definitions
+#include "characters/pico.h"
 #include "characters/backbf.h"
 #include "characters/bf.h"
 #include "characters/marcus.h"

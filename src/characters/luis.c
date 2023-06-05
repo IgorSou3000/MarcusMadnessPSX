@@ -171,8 +171,8 @@ Character *Char_Luis_New(fixed_t x, fixed_t y)
 	//Character scale
 	this->character.scale = FIXED_DEC(1,1);
 	
-	this->character.focus_x = FIXED_DEC(61 - 222,1);
-	this->character.focus_y = FIXED_DEC(-36 - 113,1);
+	this->character.focus_x = FIXED_DEC(36 - 222,1);
+	this->character.focus_y = FIXED_DEC(-36 - 110,1);
 	this->character.focus_zoom = FIXED_DEC(1,1);
 	
 	//Load art

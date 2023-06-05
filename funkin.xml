@@ -61,6 +61,9 @@
 
 			<!-- Character assets -->
 			<dir name = "char">
+				<!-- pm pm ye go pico ye ye piko piko yeee bam bam pm mp go pico ye ye -->
+				<file name = "pico.arc" type = "data" source = "iso/characters/pico/main.arc"/>
+				
 				<!-- Boyfriend assets -->
 				<file name = "backbf.arc" type = "data" source = "iso/characters/backbf/main.arc"/>
 				<file name = "bf.arc" type = "data" source = "iso/characters/bf/main.arc"/>

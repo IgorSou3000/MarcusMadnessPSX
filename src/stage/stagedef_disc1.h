@@ -1,7 +1,7 @@
     { //StageId_Halluciogens
         //Characters
         {Char_BackBF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
-        {Char_Marcus_New, FIXED_DEC(31,1),  FIXED_DEC(-219,1)},
+        {Char_Marcus_New, FIXED_DEC(31,1),  FIXED_DEC(-200,1)},
         {NULL},
         {NULL},
         {NULL},
@@ -19,7 +19,7 @@
     { //StageId_Mansion
         //Characters
         {Char_BackBF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
-        {Char_Luis_New, FIXED_DEC(222,1),  FIXED_DEC(113,1)},
+        {Char_Luis_New, FIXED_DEC(222,1),  FIXED_DEC(110,1)},
         {NULL},
         {NULL},
         {NULL},
@@ -37,10 +37,10 @@
     { //StageId_Mushroom
         //Characters
         {Char_BackBF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
-        {Char_Marcus_New, FIXED_DEC(31,1),  FIXED_DEC(-219,1)},
+        {Char_Marcus_New, FIXED_DEC(31,1),  FIXED_DEC(-200,1)},
         {NULL},
         {NULL},
-        {Char_Luis_New, FIXED_DEC(222,1),  FIXED_DEC(113,1)},
+        {Char_Luis_New, FIXED_DEC(222,1),  FIXED_DEC(110,1)},
         
         //Stage background
         Back_Marcus_New,
@@ -75,7 +75,7 @@
         {Char_BF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
         {Char_Santiago_New, FIXED_DEC(187,1),  FIXED_DEC(153,1)},
         {NULL},
-        {NULL},
+        {Char_Pico_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
         {NULL},
         
         //Stage background
@@ -93,7 +93,7 @@
         {Char_BF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
         {Char_Santiago_New, FIXED_DEC(187,1),  FIXED_DEC(153,1)},
         {NULL},
-        {NULL},
+        {Char_Pico_New,    FIXED_DEC(250,1),  FIXED_DEC(80,1)},
         {NULL},
         
         //Stage background

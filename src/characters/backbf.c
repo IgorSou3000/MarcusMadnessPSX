@@ -160,8 +160,8 @@ Character *Char_BackBF_New(fixed_t x, fixed_t y)
 	//Character scale
 	this->character.scale = FIXED_DEC(1,1);
 	
-	this->character.focus_x = FIXED_DEC(-156,1);
-	this->character.focus_y = FIXED_DEC(-150,1);
+	this->character.focus_x = FIXED_DEC(36 - 192,1);
+	this->character.focus_y = FIXED_DEC(-36 - 100,1);
 	this->character.focus_zoom = FIXED_DEC(1,1);
 	
 	//Load art

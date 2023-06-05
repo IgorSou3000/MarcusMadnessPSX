@@ -102,8 +102,8 @@ typedef struct
     
     //Song info 
     const char* week;
-    const char* img;
     u8 week_song;
+    const char* img;
     XA_Track track;
     u8 channel;
     
