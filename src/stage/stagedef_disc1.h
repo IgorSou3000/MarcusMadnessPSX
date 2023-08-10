@@ -75,7 +75,7 @@
         {Char_BF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
         {Char_Santiago_New, FIXED_DEC(187,1),  FIXED_DEC(153,1)},
         {NULL},
-        {Char_Pico_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
+        {Char_Pico_New,    FIXED_DEC(250,1),  FIXED_DEC(80,1)},
         {NULL},
         
         //Stage background

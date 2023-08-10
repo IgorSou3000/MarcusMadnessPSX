@@ -7,6 +7,13 @@ all: \
 	iso/hud/hud1.tim \
 	iso/hud/hud1spk.tim \
 	iso/hud/intro.tim \
+	iso/credit/hcredit.tim \
+	iso/credit/macredit.tim \
+	iso/credit/mucredit.tim \
+	iso/credit/sbcredit.tim \
+	iso/credit/scredit.tim \
+	iso/credit/rtcredit.tim \
+	iso/credit/bbcredit.tim \
 	iso/characters/pico/main.arc \
 	iso/characters/backbf/main.arc \
 	iso/characters/bf/main.arc \

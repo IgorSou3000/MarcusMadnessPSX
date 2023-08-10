@@ -59,6 +59,17 @@
 				<file name = "4h.cht" type = "data" source = "iso/songs/blue-blood/blue-blood-hard.cht"/>
 			</dir>
 
+			<dir name = "credit">
+
+				<file name = "hcredit.tim" type = "data" source = "iso/credit/hcredit.tim"/>
+				<file name = "macredit.tim" type = "data" source = "iso/credit/macredit.tim"/>
+				<file name = "mucredit.tim" type = "data" source = "iso/credit/mucredit.tim"/>
+				<file name = "sbcredit.tim" type = "data" source = "iso/credit/sbcredit.tim"/>
+				<file name = "scredit.tim" type = "data" source = "iso/credit/scredit.tim"/>
+				<file name = "rtcredit.tim" type = "data" source = "iso/credit/rtcredit.tim"/>
+				<file name = "bbcredit.tim" type = "data" source = "iso/credit/bbcredit.tim"/>
+			</dir>
+
 			<!-- Character assets -->
 			<dir name = "char">
 				<!-- pm pm ye go pico ye ye piko piko yeee bam bam pm mp go pico ye ye -->

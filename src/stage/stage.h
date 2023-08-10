@@ -190,11 +190,12 @@ typedef struct
     
     u32 offset;
     
+
     //HUD textures
     Gfx_Tex tex_hud0, tex_hud1, tex_intro;
 
     //Game over
-    Gfx_Tex tex_gameover;
+    Gfx_Tex tex_gameover, tex_credit;
     IO_Data gameover_tim;
     char gameover_path[30];
 
@@ -244,6 +245,9 @@ typedef struct
     fixed_t bump, sbump, character_bump;
     
     StageBack *back;
+    char* player2sing;
+    char* oppo2sing;
+
     
     Character *player;
     Character *opponent;

@@ -275,11 +275,57 @@ static void Stage_MissNote(PlayerState *this)
 	}
 }
 
+static void Stage_Player2(void)
+{
+    //check which mode you choose
+    static char* checkoption;
+
+    //change mode to single(only opponent2 sing)
+    if (strcmp(stage.player2sing, "single") == 0 && checkoption != stage.player2sing)
+    {
+        if (stage.mode == StageMode_Swap)
+        {
+            stage.player_state[1].character->pad_held = 0;
+            stage.player_state[1].character = stage.player2;
+        }
+        else
+        {
+            stage.player_state[0].character->pad_held = 0;
+            stage.player_state[0].character = stage.player2;
+        }
+    }
+
+    //change mode to none (opponent2 don't sing)
+    else if (strcmp(stage.player2sing, "none") == 0 && checkoption != stage.player2sing)
+    {
+        if (stage.mode == StageMode_Swap)
+        {
+            stage.player_state[1].character->pad_held = 0;
+            stage.player_state[1].character = stage.player;
+        }
+        else
+        {
+            stage.player_state[0].character->pad_held = 0;
+            stage.player_state[0].character = stage.player;
+        }
+    }
+
+    if (checkoption != stage.player2sing)
+        checkoption = stage.player2sing;
+}
+
 static void Stage_NoteCheck(PlayerState *this, u8 type)
 {
 	//Perform note check
 	for (Note *note = stage.main_chart.cur_note;; note++)
 	{
+        if ((note->type & NOTE_FLAG_CHARACTER2))
+        {
+            stage.player2sing = "single";
+        }
+        else            
+ 	        stage.player2sing = "none";
+
 		if (!(note->type & NOTE_FLAG_MINE))
 		{
 			//Check if note can be hit
@@ -293,6 +339,7 @@ static void Stage_NoteCheck(PlayerState *this, u8 type)
 			
 			//Hit the note
 			note->type |= NOTE_FLAG_HIT;
+ 	        stage.player2sing = "none";
 		
 			Stage_CharacterSing(this, note, type);
 
@@ -351,6 +398,11 @@ static void Stage_SustainCheck(PlayerState *this, u8 type)
 	//Perform note check
 	for (Note *note = stage.main_chart.cur_note;; note++)
 	{
+        if ((note->type & NOTE_FLAG_CHARACTER2))
+            stage.player2sing = "single";
+        else            
+ 	        stage.player2sing = "none";
+ 	    
 		//Check if note can be hit
 		fixed_t note_fp = (fixed_t)note->pos << FIXED_SHIFT;
 		if (note_fp - stage.early_sus_safe > stage.note_scroll)
@@ -362,6 +414,7 @@ static void Stage_SustainCheck(PlayerState *this, u8 type)
 		
 		//Hit the note
 		note->type |= NOTE_FLAG_HIT;
+ 	        stage.player2sing = "none";
 		
 		Stage_CharacterSing(this, note, type);
 		
@@ -1298,6 +1351,8 @@ static void Stage_LoadState(void)
 
 	for (int i = 0; i < 2; i++)
 	{
+        stage.player2sing = "none";
+
 		memset(stage.player_state[i].arrow_hitan, 0, sizeof(stage.player_state[i].arrow_hitan));
 		
 		stage.player_state[i].health = 10000;
@@ -1352,6 +1407,10 @@ void Stage_Load(StageId id, StageDiff difficulty, boolean story)
 	Gfx_LoadTex(&stage.tex_hud0, IO_Read("\\HUD\\HUD0.TIM;1"), GFX_LOADTEX_FREE);
 	Gfx_LoadTex(&stage.tex_hud1, IO_Read("\\HUD\\HUD1.TIM;1"), GFX_LOADTEX_FREE);
 	Gfx_LoadTex(&stage.tex_intro, IO_Read("\\HUD\\INTRO.TIM;1"), GFX_LOADTEX_FREE);
+
+	char iconpath[30];
+    sprintf(iconpath, "\\CREDIT\\%s;1", stage.stage_def->img);
+    Gfx_LoadTex(&stage.tex_credit, IO_Read(iconpath), GFX_LOADTEX_FREE);
 	
 	//Load stage chart
 	Stage_LoadChart();
@@ -1581,6 +1640,7 @@ void Stage_Tick(void)
 	{
 		case StageState_Play:
 		{		
+            Stage_Player2();
 			//Get song position
 			boolean playing = false;
 			fixed_t next_scroll;
