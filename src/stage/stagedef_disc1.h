@@ -76,7 +76,7 @@
         {Char_Santiago_New, FIXED_DEC(187,1),  FIXED_DEC(153,1)},
         {NULL},
         {Char_Pico_New,    FIXED_DEC(250,1),  FIXED_DEC(80,1)},
-        {NULL},
+        {Char_Sexe_New, FIXED_DEC(-19,1),  FIXED_DEC(118,1)},
         
         //Stage background
         Back_Santiago_New,
@@ -91,7 +91,7 @@
     { //StageId_Rat_Trap
         //Characters
         {Char_BF_New,    FIXED_DEC(192,1),  FIXED_DEC(100,1)},
-        {Char_Santiago_New, FIXED_DEC(187,1),  FIXED_DEC(153,1)},
+        {Char_Sexe_New, FIXED_DEC(-19,1),  FIXED_DEC(118,1)},
         {NULL},
         {Char_Pico_New,    FIXED_DEC(250,1),  FIXED_DEC(80,1)},
         {NULL},

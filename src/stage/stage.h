@@ -151,7 +151,7 @@ typedef struct
 {
     Character *character;
     Character *character2;
-    
+   
     fixed_t arrow_hitan[4]; //Arrow hit animation for presses
     
     s16 health;
@@ -254,6 +254,9 @@ typedef struct
     Character *gf;
     Character *player2;
     Character *opponent2;
+
+    Character *characterPointer;
+    Character *characterPointer2;
     
     fixed_t note_scroll, song_time, interp_time, interp_ms, interp_speed;
 

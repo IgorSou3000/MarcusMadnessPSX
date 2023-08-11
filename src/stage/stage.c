@@ -41,6 +41,7 @@ static const u8 note_anims[4][3] = {
 #include "characters/marcus.h"
 #include "characters/luis.h"
 #include "characters/santiago.h"
+#include "characters/sexe.h"
 #include "characters/gf.h"
 
 #include "weeks/dummy.h"
@@ -339,7 +340,6 @@ static void Stage_NoteCheck(PlayerState *this, u8 type)
             
             //Hit the note
             note->type |= NOTE_FLAG_HIT;
-            stage.player2sing = "none";
         
             Stage_CharacterSing(this, note, type);
 
@@ -414,8 +414,7 @@ static void Stage_SustainCheck(PlayerState *this, u8 type)
         
         //Hit the note
         note->type |= NOTE_FLAG_HIT;
-            stage.player2sing = "none";
-        
+
         Stage_CharacterSing(this, note, type);
         
         Stage_StartVocal();
@@ -1458,6 +1457,11 @@ void Stage_Load(StageId id, StageDiff difficulty, boolean story)
     
     //Test offset
     stage.offset = 0;
+    if (stage.stage_id == StageId_Santiagonist)
+    {
+                                stage.characterPointer2 = stage.opponent2;
+                                stage.opponent2 = NULL;
+    }
 }
 
 void Stage_UnloadChart(Chart* chart)
@@ -1500,6 +1504,10 @@ void Stage_Unload(void)
     stage.player2 = NULL;
     Character_Free(stage.opponent2);
     stage.opponent2 = NULL;
+            Character_Free(stage.characterPointer);
+            stage.characterPointer = NULL;
+            Character_Free(stage.characterPointer2);
+            stage.characterPointer2 = NULL;
 }
 
 static boolean Stage_NextLoad(void)
@@ -1646,6 +1654,96 @@ void Stage_Tick(void)
     {
         case StageState_Play:
         {       
+            //Draw stage foreground
+            if (stage.back->draw_fg != NULL)
+                stage.back->draw_fg(stage.back);
+            
+            switch(stage.stage_id)
+            {
+                case StageId_Santiagonist:
+                    if (stage.flag & STAGE_FLAG_JUST_STEP)
+                    {
+                        switch (stage.song_step)
+                        {
+                            case 480:
+                                stage.characterPointer = stage.opponent;
+                                stage.opponent = stage.characterPointer2;
+                                if (stage.mode == StageMode_Swap)
+                                {
+                                    stage.player_state[0].character = stage.opponent;
+                                }
+                                else
+                                {
+                                    stage.player_state[1].character = stage.opponent;
+                                }
+
+                                //flash, change character, play laugh
+
+                                break;
+                            case 482:
+                                stage.opponent->set_anim(stage.opponent, CharAnim_DownAlt);
+                                break;
+                            case 486:
+                                stage.opponent->set_anim(stage.opponent, CharAnim_DownAlt);
+                                break;
+                            case 489:
+                                stage.opponent->set_anim(stage.opponent, CharAnim_DownAlt);
+                                break;
+                            case 491:
+                                stage.opponent->set_anim(stage.opponent, CharAnim_DownAlt);
+                                break;
+                            case 495:
+                                stage.opponent->set_anim(stage.opponent, CharAnim_DownAlt);
+                                break;
+                            case 895:
+                                stage.characterPointer2 = stage.opponent;
+                                stage.opponent = stage.characterPointer;
+                                if (stage.mode == StageMode_Swap)
+                                {
+                                    stage.player_state[0].character = stage.opponent;
+                                }
+                                else
+                                {
+                                    stage.player_state[1].character = stage.opponent;
+                                }
+
+                                //flash character change
+                                break;
+
+                            default:break;
+                        }
+                    }
+    
+                    break;
+                case StageId_Rat_Trap:
+                    if (stage.flag & STAGE_FLAG_JUST_STEP)
+                    {
+                        switch (stage.song_step)
+                        {
+                            case 1007:
+                                //flash
+                                stage.opponent->set_anim(stage.opponent, CharAnim_DownAlt);
+                                break;
+                            case 1009:
+                                stage.opponent->set_anim(stage.opponent, CharAnim_DownAlt);
+                                break;
+                            case 1011:
+                                stage.opponent->set_anim(stage.opponent, CharAnim_DownAlt);
+                                break;
+                            case 1014:
+                                stage.opponent->set_anim(stage.opponent, CharAnim_DownAlt);
+                                break;
+                            case 1016:
+                                stage.opponent->set_anim(stage.opponent, CharAnim_DownAlt);
+                                break;
+                            default:break;
+                        }
+                    }
+    
+                    break;
+                    
+                default:break;
+            }
 
             if (stage.song_step >= muststart && stage.song_step <= mustend+2)
             {
@@ -1990,10 +2088,6 @@ void Stage_Tick(void)
                 Stage_DrawHealthBar(stage.player_state[0].character->health_b,  1);
             }
             
-            //Draw stage foreground
-            if (stage.back->draw_fg != NULL)
-                stage.back->draw_fg(stage.back);
-            
             //Tick foreground objects
             ObjectList_Tick(&stage.objlist_fg);
             
@@ -2045,6 +2139,8 @@ void Stage_Tick(void)
             stage.opponent = NULL;
             Character_Free(stage.gf);
             stage.gf = NULL;
+            Character_Free(stage.characterPointer);
+            stage.characterPointer = NULL;
             
             //Reset stage state
             stage.flag = 0;

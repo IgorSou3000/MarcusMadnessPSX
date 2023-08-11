@@ -21,9 +21,10 @@ all: \
 	iso/characters/marcus/main.arc \
 	iso/characters/luis/main.arc \
 	iso/characters/santiago/main.arc \
+	iso/characters/sexe/main.arc \
 	iso/characters/gf/main.arc \
 	iso/characters/gf/speaker.tim \
-	iso/stage/santiagobg/back.arc \
+	iso/stage/santiagobg/back.arc 
 
 iso/%.tim: iso/%.png
 	tools/funkintimpak/funkintimpak $@ $<
@@ -51,10 +52,11 @@ iso/characters/luis/main.arc: iso/characters/luis/idle0.tim iso/characters/luis/
 
 # Santiago
 iso/characters/santiago/main.arc: iso/characters/santiago/san0.tim iso/characters/santiago/san1.tim iso/characters/santiago/san2.tim iso/characters/santiago/san3.tim iso/characters/santiago/san4.tim iso/characters/santiago/san5.tim iso/characters/santiago/san6.tim iso/characters/santiago/san7.tim iso/characters/santiago/san8.tim
-
+#  sexe
+iso/characters/sexe/main.arc: iso/characters/sexe/idle1.tim iso/characters/sexe/idle2.tim iso/characters/sexe/idle3.tim iso/characters/sexe/idle4.tim iso/characters/sexe/idle5.tim iso/characters/sexe/idle6.tim iso/characters/sexe/idle7.tim iso/characters/sexe/left1.tim iso/characters/sexe/left2.tim iso/characters/sexe/left3.tim iso/characters/sexe/left4.tim iso/characters/sexe/down1.tim iso/characters/sexe/down2.tim iso/characters/sexe/down3.tim iso/characters/sexe/down4.tim iso/characters/sexe/up1.tim iso/characters/sexe/up2.tim iso/characters/sexe/up3.tim iso/characters/sexe/up4.tim iso/characters/sexe/right1.tim iso/characters/sexe/right2.tim iso/characters/sexe/right3.tim iso/characters/sexe/right4.tim  iso/characters/sexe/laugh1.tim iso/characters/sexe/laugh2.tim iso/characters/sexe/laugh3.tim iso/characters/sexe/laugh4.tim 
 
 # GF
 iso/characters/gf/main.arc: iso/characters/gf/gf0.tim iso/characters/gf/gf1.tim iso/characters/gf/gf2.tim iso/characters/gf/tut0.tim iso/characters/gf/tut1.tim
 
 # Week 1
-iso/stage/santiagobg/back.arc: iso/stage/santiagobg/back0.tim
+iso/stage/santiagobg/back.arc: iso/stage/santiagobg/back0.tim iso/stage/santiagobg/sant.tim iso/stage/santiagobg/sexe.tim

@@ -13,17 +13,17 @@
 
 #define DEBUG_POSITION_SIZE 5
 
-#define DEBUG_MODE
+//#define DEBUG_MODE
 
 #ifdef DEBUG_MODE
 //Debug definitions
 typedef struct
 {
-	u8 mode, next_mode;
-	u8 select;
-	RECT_FIXED ogpositions[DEBUG_POSITION_SIZE];
-	RECT_FIXED positions[DEBUG_POSITION_SIZE];
-	char tex_names[15][DEBUG_POSITION_SIZE];
+    u8 mode, next_mode;
+    u8 select;
+    RECT_FIXED ogpositions[DEBUG_POSITION_SIZE];
+    RECT_FIXED positions[DEBUG_POSITION_SIZE];
+    char tex_names[15][DEBUG_POSITION_SIZE];
 } Debug;
 
 extern Debug debug;
